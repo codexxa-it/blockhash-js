@@ -1,6 +1,6 @@
 {
   "name": "blockhash",
-  "version": "0.3",
+  "version": "0.0.3",
   "homepage": "https://github.com/commonsmachinery/blockhash-js",
   "author": "Commons Machinery <dev@commonsmachinery.se>",
   "description": "Perceptual image hash calculation tool",
@@ -9,6 +9,8 @@
     "url": "https://github.com/commonsmachinery/blockhash-js.git"
   },
   "scripts": {
+    "build": "browserify index.js --standalone blockchainjs -o blockhash.js",
+    "deploy": "npm pack && scp .\\blockhash-%npm_package_version%.tgz developer@kabirkhaleque.com:/var/www/html/blockhash-%npm_package_version%.tgz",
     "test": "mocha"
   },
   "main": "index.js",
@@ -29,13 +31,14 @@
     "perceptual"
   ],
   "devDependencies": {
-    "browserify-shim": "^3.8.0",
+    "browserify-shim": "^3.8.14",
     "expect.js": "*",
     "glob": "*",
-    "jpeg-js": "0.0.4",
+    "jpeg-js": "^0.4.0",
     "jshint": "*",
     "mocha": "*",
-    "png-js": "^0.1.1"
+    "png-js": "^1.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }
